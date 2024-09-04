@@ -1,7 +1,7 @@
-using SeungHoon.Sensor;
+using KUsystem.Sensor;
 using UnityEngine;
 
-namespace SeungHoon.Vection
+namespace KUsystem.Vection
 {
     [RequireComponent(typeof(IMU))]
     public class RotateFromIMU : MonoBehaviour

@@ -1,7 +1,7 @@
-using SeungHoon.Utils;
+using KUsystem.Utils;
 using UnityEngine;
 
-namespace SeungHoon.Manager
+namespace KUsystem.Manager
 {
     public class ResourceManager
     {

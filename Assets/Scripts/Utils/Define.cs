@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-namespace SeungHoon.Utils
+namespace KUsystem.Utils
 {
     public class Define
     {

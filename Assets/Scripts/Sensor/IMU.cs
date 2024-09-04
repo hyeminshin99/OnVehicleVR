@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SeungHoon.Sensor
+namespace KUsystem.Sensor
 {
     public class IMU : MonoBehaviour
     {
@@ -35,15 +35,15 @@ namespace SeungHoon.Sensor
 
         void Start()
         {
-            SeungHoon.Manager.Managers.Serial.OpenSerialPort();
+            KUsystem.Manager.Managers.Serial.OpenSerialPort();
         }
 
         void Update()
         {
             // Serial Data�� ���������� ������Ʈ�Ͽ� ������
-            SeungHoon.Manager.Managers.Serial.UpdateSerialData();
+            KUsystem.Manager.Managers.Serial.UpdateSerialData();
 
-            string serialData = SeungHoon.Manager.Managers.Serial.DataReceived;
+            string serialData = KUsystem.Manager.Managers.Serial.DataReceived;
             
             if(serialData == null)
             {
@@ -81,7 +81,7 @@ namespace SeungHoon.Sensor
 
         void OnDestroy()
         {
-            SeungHoon.Manager.Managers.Serial.CloseSerialPort();
+            KUsystem.Manager.Managers.Serial.CloseSerialPort();
         }
     }
 

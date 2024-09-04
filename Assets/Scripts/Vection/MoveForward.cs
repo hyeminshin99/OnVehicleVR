@@ -1,5 +1,5 @@
 using UnityEngine;
-using SeungHoon.Sensor;
+using KUsystem.Sensor;
 
 public class MoveForward : MonoBehaviour
 {

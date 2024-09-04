@@ -2,7 +2,7 @@ using System.IO.Ports;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace SeungHoon.Manager
+namespace KUsystem.Manager
 {
     // ��ǻ�� ȯ�濡 ���� Serial Port�� �ֱ������� Update ���־�� ��
     public class SerialManager

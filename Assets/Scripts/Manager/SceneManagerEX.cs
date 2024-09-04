@@ -1,10 +1,10 @@
-using SeungHoon.Scene;
-using SeungHoon.Utils;
+using KUsystem.Scene;
+using KUsystem.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace SeungHoon.Manager
+namespace KUsystem.Manager
 {
     public class SceneManagerEX
     {

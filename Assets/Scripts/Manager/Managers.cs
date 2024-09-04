@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SeungHoon.Manager
+namespace KUsystem.Manager
 {
     public class Managers: MonoBehaviour
     {

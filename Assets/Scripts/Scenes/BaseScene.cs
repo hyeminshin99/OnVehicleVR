@@ -1,10 +1,10 @@
-using SeungHoon.Manager;
-using SeungHoon.Utils;
+using KUsystem.Manager;
+using KUsystem.Utils;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-namespace SeungHoon.Scene
+namespace KUsystem.Scene
 {
     public abstract class BaseScene: MonoBehaviour
     {

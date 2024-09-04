@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using SeungHoon.Utils;
+using KUsystem.Utils;
 
-namespace SeungHoon.Manager
+namespace KUsystem.Manager
 {
     public class PoolManager
     {

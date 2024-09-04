@@ -6,7 +6,7 @@ using UnityEngine;
 //Fast Poisson Disk Sampling
 //https://www.cs.ubc.ca/~rbridson/docs/bridson-siggraph07-poissondisk.pdf
 
-namespace SeungHoon.Utils
+namespace KUsystem.Utils
 {
     public class PoissonDiskSampling : MonoBehaviour
     {

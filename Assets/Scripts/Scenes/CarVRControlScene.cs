@@ -1,7 +1,7 @@
-using SeungHoon.Utils;
+using KUsystem.Utils;
 using UnityEngine;
 
-namespace SeungHoon.Scene
+namespace KUsystem.Scene
 {
     public class CarVRControlScene : BaseScene
     {

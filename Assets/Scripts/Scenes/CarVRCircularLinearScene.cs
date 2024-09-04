@@ -1,7 +1,7 @@
-using SeungHoon.Manager;
+using KUsystem.Manager;
 using UnityEngine;
 
-namespace SeungHoon.Scene
+namespace KUsystem.Scene
 {
     public class CarVRCircularLinearScene : BaseScene
     {
