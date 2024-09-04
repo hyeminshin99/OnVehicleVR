@@ -587,21 +587,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 330613896}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &330613901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330613897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84733708e8b3c3346805f24ef0dd52e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  condition: 1
-  demoScript: {fileID: 1816859358}
-  smoothingFactor: 0.1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,6 +1459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 869673806}
+  - component: {fileID: 869673807}
   m_Layer: 0
   m_Name: '[Scene - Design]'
   m_TagString: Untagged
@@ -1496,6 +1482,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &869673807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869673805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84733708e8b3c3346805f24ef0dd52e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  condition: 1
+  demoScript: {fileID: 1816859358}
+  smoothingFactor: 0.1
+  AObject: {fileID: 330613897}
 --- !u!1 &1029315569
 GameObject:
   m_ObjectHideFlags: 0
@@ -4005,7 +4007,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 330613901}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RotateController, Assembly-CSharp
         m_MethodName: ResetAngles
         m_Mode: 1

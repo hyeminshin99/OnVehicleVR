@@ -22,10 +22,12 @@ public class RotateController : MonoBehaviour
     private Vector3 smoothedAngles;
     public float smoothingFactor = 0.1f;
 
+    public GameObject AObject;
+
     void Start()
     {
         // Globe3DModel의 Transform을 가져옵니다. (이 스크립트가 Globe3DModel에 붙어있다면 바로 transform 사용 가능)
-        globeTransform = this.transform;
+        globeTransform = AObject.transform;
     }
 
     void Update()
