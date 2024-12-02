@@ -7,7 +7,7 @@ namespace KUsystem.Manager
     // ��ǻ�� ȯ�濡 ���� Serial Port�� �ֱ������� Update ���־�� ��
     public class SerialManager
     {
-        SerialPort stream = new SerialPort("COM5", 115200);
+        SerialPort stream = new SerialPort("COM3", 115200);
 
         private string mDataReceived;
         public string DataReceived

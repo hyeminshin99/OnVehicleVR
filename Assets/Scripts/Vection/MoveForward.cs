@@ -7,6 +7,7 @@ public class MoveForward : MonoBehaviour
     {
         OBD2 = 0,
         Manual = 1,
+        KKL = 2
     }
 
     [SerializeField]
@@ -49,6 +50,12 @@ public class MoveForward : MonoBehaviour
         {
             mSpeed = mIMU.VehicleSpeed;
         }
+        else if (mInputType == ETypeOfInput.KKL && SpeedManager.Instance != null)
+        {
+            // SpeedManager로부터 KKL 센서 속도 데이터를 받아옵니다.
+            mSpeed = SpeedManager.Instance.Speed; //Input type is not defined. 라는 에러 뜸.
+        }
+
 
         transform.Translate(new Vector3(mSpeed * Time.deltaTime, 0.0f, 0.0f));
     }
