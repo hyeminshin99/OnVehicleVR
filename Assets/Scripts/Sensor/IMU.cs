@@ -58,9 +58,9 @@ namespace KUsystem.Sensor
                 if((splitedData.Length == 4)
                     && (float.TryParse(splitedData[0], out float x)))
                 {
-                    mEulerRawData.x = -float.Parse(splitedData[0]);
-                    mEulerRawData.z = -float.Parse(splitedData[1]);
-                    mEulerRawData.y = float.Parse(splitedData[2]);
+                    mEulerRawData.x = float.Parse(splitedData[0]);
+                    mEulerRawData.z = float.Parse(splitedData[1]);
+                    mEulerRawData.y = -float.Parse(splitedData[2]);
                     mVehicleSpeed = float.Parse(splitedData[3]);
                 }
             }
@@ -72,9 +72,9 @@ namespace KUsystem.Sensor
                 if ((splitedData.Length == 3)
                     && (float.TryParse(splitedData[0], out float x)))
                 {
-                    mEulerRawData.x = -float.Parse(splitedData[0]);
-                    mEulerRawData.z = -float.Parse(splitedData[1]);
-                    mEulerRawData.y = float.Parse(splitedData[2]);
+                    mEulerRawData.x = float.Parse(splitedData[0]);
+                    mEulerRawData.z = float.Parse(splitedData[1]);
+                    mEulerRawData.y = -float.Parse(splitedData[2]);
                 }
             }
         }
