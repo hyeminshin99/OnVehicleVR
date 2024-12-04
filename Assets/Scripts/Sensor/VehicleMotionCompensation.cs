@@ -2,29 +2,34 @@ using UnityEngine;
 
 public class VehicleMotionCompensation : MonoBehaviour
 {
-    public Transform carTransform; // IMU µ¥ÀÌÅÍÀÇ ±âÁØ(ÀÚµ¿Â÷ Transform)
-    public Transform xrOriginTransform; // XR Origin Transform (VRÀÇ ±âÁØ)
-    public Transform headTransform; // OculusÀÇ Ä«¸Ş¶ó (¸Ó¸® À§Ä¡)
+    public Transform carTransform; // IMU ë°ì´í„°ì˜ ê¸°ì¤€(ìë™ì°¨ Transform)
+    public Transform xrOriginTransform; // XR Origin Transform (VRì˜ ê¸°ì¤€)
+    public Transform headTransform; // Oculusì˜ ì¹´ë©”ë¼ (ë¨¸ë¦¬ ìœ„ì¹˜)
 
-    private Quaternion initialCarRotation; // ÃÊ±â ÀÚµ¿Â÷ÀÇ È¸Àü
-    private Quaternion initialVROriginRotation; // ÃÊ±â XR OriginÀÇ È¸Àü
+    private Quaternion initialCarRotation; // ì´ˆê¸° ìë™ì°¨ì˜ íšŒì „
+    private Quaternion initialVROriginRotation; // ì´ˆê¸° XR Originì˜ íšŒì „
 
     void Start()
     {
-        // ÃÊ±â ÀÚµ¿Â÷¿Í VR OriginÀÇ È¸Àü ÀúÀå
+        // ì´ˆê¸° ìë™ì°¨ì™€ XR Originì˜ íšŒì „ ì €ì¥
         initialCarRotation = carTransform.rotation;
         initialVROriginRotation = xrOriginTransform.rotation;
     }
 
     void Update()
     {
-        // ÀÚµ¿Â÷ È¸ÀüÀ» º¸Á¤ÇÏ¿© XR Origin¿¡ ¹İ¿µ
+        // ìë™ì°¨ íšŒì „ ë¸íƒ€ ê³„ì‚°
         Quaternion carRotationDelta = Quaternion.Inverse(initialCarRotation) * carTransform.rotation;
 
-        // XR Origin¿¡ ÀÚµ¿Â÷ È¸Àü º¸Á¤ ¹İ¿µ
-        xrOriginTransform.rotation = initialVROriginRotation * Quaternion.Inverse(carRotationDelta);
+        // ìë™ì°¨ íšŒì „ ë¸íƒ€ì—ì„œ Yaw(ì¢Œìš° íšŒì „)ë§Œ ì¶”ì¶œ
+        Vector3 carEulerAngles = carRotationDelta.eulerAngles;
+        float yaw = carEulerAngles.y; // Yaw(ì¢Œìš° íšŒì „)ë§Œ ì¶”ì¶œ
 
-        // »ç¿ëÀÚ ¸Ó¸® È¸Àü(Oculus)Àº »ó´ëÀûÀ¸·Î ¹İ¿µ
+        // XR Originì˜ íšŒì „ ë³´ì • (Yawë§Œ ì ìš©)
+        Quaternion yawRotation = Quaternion.Euler(0, yaw, 0);
+        xrOriginTransform.rotation = initialVROriginRotation * Quaternion.Inverse(yawRotation);
+
+        // ì‚¬ìš©ì ë¨¸ë¦¬ íšŒì „(Oculus)ì€ ê·¸ëŒ€ë¡œ ìœ ì§€
         Vector3 headLocalRotation = headTransform.localEulerAngles;
         headTransform.localEulerAngles = new Vector3(headLocalRotation.x, headLocalRotation.y, headLocalRotation.z);
     }
