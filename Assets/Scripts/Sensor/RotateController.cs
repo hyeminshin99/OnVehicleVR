@@ -39,7 +39,7 @@ public class RotateController : MonoBehaviour
 
             if (string.IsNullOrEmpty(deviceId))
             {
-                Debug.Log("!!!Can not Find Device!!!!!");
+                //Debug.Log("!!!Can not Find Device!!!!!");
                 return;
             }
 
@@ -95,7 +95,7 @@ public class RotateController : MonoBehaviour
             // 만약 deviceId가 비어있다면 반환
             if (string.IsNullOrEmpty(deviceId))
             {
-                Debug.LogWarning("!!!Can not Find Device!!!!!");
+                //Debug.LogWarning("!!!Can not Find Device!!!!!");
                 return;
             }
 
