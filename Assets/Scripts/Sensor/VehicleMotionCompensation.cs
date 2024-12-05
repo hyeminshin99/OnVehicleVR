@@ -33,4 +33,19 @@ public class VehicleMotionCompensation : MonoBehaviour
         Vector3 headLocalRotation = headTransform.localEulerAngles;
         headTransform.localEulerAngles = new Vector3(headLocalRotation.x, headLocalRotation.y, headLocalRotation.z);
     }
+
+    public void ResetInitialRotation()
+    {
+        // 현재 자동차와 XR Origin의 회전을 초기값으로 재설정
+        initialCarRotation = carTransform.rotation;
+
+        // 현재 사용자의 머리 방향 기준으로 XR Origin 보정
+        Quaternion currentHeadRotation = Quaternion.Euler(0, headTransform.eulerAngles.y, 0); // 머리의 Yaw만 반영
+        initialVROriginRotation = xrOriginTransform.rotation * Quaternion.Inverse(currentHeadRotation);
+
+        // 오른쪽으로 90도 보정 문제 해결
+        initialVROriginRotation *= Quaternion.Euler(0, -90, 0); // 시선 조정을 위해 90도 보정 추가
+
+        Debug.Log("Environment orientation reset!");
+    }
 }

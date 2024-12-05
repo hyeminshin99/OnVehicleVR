@@ -1625,6 +1625,7 @@ MonoBehaviour:
   carTransform: {fileID: 330613898}
   xrOriginTransform: {fileID: 1029315571}
   headTransform: {fileID: 330585546}
+  screenTransform: {fileID: 1430035298}
 --- !u!1 &1029315569
 GameObject:
   m_ObjectHideFlags: 0
@@ -4135,9 +4136,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RotateController, Assembly-CSharp
-        m_MethodName: ResetAngles
+      - m_Target: {fileID: 869673808}
+        m_TargetAssemblyTypeName: VehicleMotionCompensation, Assembly-CSharp
+        m_MethodName: ResetInitialRotation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5571,7 +5572,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4793834874660002467}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
