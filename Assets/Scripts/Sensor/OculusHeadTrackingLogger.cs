@@ -31,7 +31,7 @@ public class OculusHeadTrackingLogger : MonoBehaviour
 
         // CSV 파일 생성 및 헤더 작성
         writer = new StreamWriter(filePath, false);
-        writer.WriteLine("Time,PositionX,PositionY,PositionZ,RotationX,RotationY,RotationZ,RotationW");
+        writer.WriteLine("Time,WorldPosX,WorldPosY,WorldPosZ,LocalPosX,LocalPosY,LocalPosZ,RotationX,RotationY,RotationZ,RotationW");
 
         Debug.Log($"CSV 파일이 생성되었습니다: {filePath}");
     }
@@ -44,12 +44,18 @@ public class OculusHeadTrackingLogger : MonoBehaviour
             // 현재 시간
             float time = Time.time;
 
-            // 헤드셋의 위치와 회전 정보
-            Vector3 position = Camera.main.transform.position;
+            // 월드 좌표와 로컬 좌표
+            Vector3 worldPosition = Camera.main.transform.position;
+            Vector3 localPosition = Camera.main.transform.localPosition;
+
+            // 헤드셋의 회전 정보
             Quaternion rotation = Camera.main.transform.rotation;
 
             // 데이터를 CSV 형식으로 저장
-            string line = $"{time},{position.x},{position.y},{position.z},{rotation.x},{rotation.y},{rotation.z},{rotation.w}";
+            string line = $"{time}," +
+                          $"{worldPosition.x},{worldPosition.y},{worldPosition.z}," +
+                          $"{localPosition.x},{localPosition.y},{localPosition.z}," +
+                          $"{rotation.x},{rotation.y},{rotation.z},{rotation.w}";
             writer.WriteLine(line);
         }
     }
