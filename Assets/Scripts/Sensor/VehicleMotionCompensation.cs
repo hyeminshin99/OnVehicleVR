@@ -16,7 +16,7 @@ public class VehicleMotionCompensation : MonoBehaviour
         initialVROriginRotation = xrOriginTransform.rotation;
     }
 
-    void Update()
+    void _FixedUpdate()
     {
         // 자동차 회전 델타 계산
         Quaternion carRotationDelta = Quaternion.Inverse(initialCarRotation) * carTransform.rotation;
