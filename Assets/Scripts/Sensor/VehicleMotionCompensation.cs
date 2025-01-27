@@ -8,6 +8,7 @@ public class VehicleMotionCompensation : MonoBehaviour
 
     private Quaternion initialCarRotation; // 초기 자동차의 회전
     private Quaternion initialVROriginRotation; // 초기 XR Origin의 회전
+    private bool shouldApplyHeadRotation = false; // 머리 회전 적용 여부 플래그
 
     void Start()
     {
@@ -32,6 +33,15 @@ public class VehicleMotionCompensation : MonoBehaviour
         // 사용자 머리 회전(Oculus)은 그대로 유지
         Vector3 headLocalRotation = headTransform.localEulerAngles;
         headTransform.localEulerAngles = new Vector3(headLocalRotation.x, headLocalRotation.y, headLocalRotation.z);
+
+        // ResetInitialRotation 호출 시 머리 회전 한 번 반영
+        if (shouldApplyHeadRotation)
+        {
+            Vector3 newHeadLocalRotation = headTransform.localEulerAngles;
+            headTransform.localEulerAngles = new Vector3(newHeadLocalRotation.x, newHeadLocalRotation.y, newHeadLocalRotation.z);
+
+            shouldApplyHeadRotation = false; // 플래그 초기화
+        }
     }
 
     public void ResetInitialRotation()
@@ -45,6 +55,9 @@ public class VehicleMotionCompensation : MonoBehaviour
 
         // 오른쪽으로 90도 보정 문제 해결
         initialVROriginRotation *= Quaternion.Euler(0, -90, 0); // 시선 조정을 위해 90도 보정 추가
+        
+        // 머리 회전 반영 플래그 활성화
+        shouldApplyHeadRotation = true;
 
         Debug.Log("Environment orientation reset!");
     }
